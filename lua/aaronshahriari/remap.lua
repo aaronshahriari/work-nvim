@@ -3,6 +3,12 @@ vim.g.mapleader = " "
 
 vim.g.netrw_bufsettings = "noma nomod nu nowrap ro nobl"
 vim.cmd("autocmd FileType netrw set nu")
+--
+-- Map these to move splits
+vim.keymap.set("n", "<C-S-h>", "<C-w>H")
+vim.keymap.set("n", "<C-S-j>", "<C-w>J")
+vim.keymap.set("n", "<C-S-k>", "<C-w>K")
+vim.keymap.set("n", "<C-S-l>", "<C-w>L")
 
 -- Map these to move through splits
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")

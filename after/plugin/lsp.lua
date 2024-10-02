@@ -9,7 +9,7 @@ local lspconfig = require('lspconfig')
 
 -- setup for apex_ls
 lspconfig.apex_ls.setup({
-    apex_jar_path = vim.fn.expand("/home/ashahriari/apex-jorje-lsp.jar"),
+    apex_jar_path = '/mnt/c/Users/AaronShahriari/lsp/apex-jorje-lsp.jar',
     apex_enable_semantic_errors = false,
     apex_enable_completion_statistics = false,
     filetypes = { "apex", "apexcode" },
