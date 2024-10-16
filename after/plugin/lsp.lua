@@ -15,20 +15,6 @@ lspconfig.apex_ls.setup({
     filetypes = { "apex", "apexcode" },
 })
 
--- setup for lua
-lspconfig.lua_ls.setup({})
-
--- setup for nix
-lspconfig.nil_ls.setup({
-    settings = {
-        ['nil'] = {
-            formatting = {
-                command = { "nixfmt" },
-            },
-        },
-    },
-})
-
 vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = buffer,
     callback = function()
