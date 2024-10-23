@@ -21,7 +21,8 @@ require("sf").setup({
     },
 })
 
+local Sf = require('sf')
 -- remaps
-vim.keymap.set("n", "<leader>aa", ":SFRunAnonymousApex<CR>")
-vim.keymap.set("n", "<C-p>", ":SFToggle<CR>")
-vim.keymap.set("n", "<leader>q", ":SFRunQuery<CR>")
+vim.keymap.set("n", "<leader>aa", Sf.run_anonymous)
+vim.keymap.set("n", "<C-p>", Sf.toggle_term)
+vim.keymap.set("n", "<leader>q", Sf.run_query)
