@@ -42,7 +42,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- flip flop visual line blocks
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -52,7 +52,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]])
 
 -- run tmux inside of vim
-vim.keymap.set("n", "<C-f>", "<cmd>silent !. ~/.dotfiles/bin/.local/scripts/wezterm-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.dotfiles/bin/.local/scripts/tmux-sessionizer<CR>")
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !. ~/.dotfiles/bin/.local/scripts/wezterm-sessionizer<CR>")
 
 -- Define a function for creating a small terminal
 -- entering the current directory of file you are inside
@@ -61,7 +62,7 @@ function Small_terminal()
     vim.cmd("wincmd J")
     vim.api.nvim_win_set_height(0, 12)
     vim.cmd("term")
-    -- vim.api.nvim_feedkeys("a", "n", true)
+    vim.api.nvim_feedkeys("a", "n", true)
 end
 
 -- Create a mapping for the small terminal function

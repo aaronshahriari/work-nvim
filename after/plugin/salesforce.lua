@@ -6,6 +6,10 @@ require("sf").setup({
     -- This flag enable/disable hotkeys while user commands are always enabled
     enable_hotkeys = false,
 
+    -- the folder this plugin uses to store intermediate data. It's under the sf project root directory.
+    plugin_folder_name = 'sf_cache/',
+
+
     -- Metadata related hotkeys (e.g. push/retrieve Apex) are only enabled in
     -- these filetypes
     hotkeys_in_filetypes = {
@@ -26,3 +30,4 @@ local Sf = require('sf')
 vim.keymap.set("n", "<leader>aa", Sf.run_anonymous)
 vim.keymap.set("n", "<C-p>", Sf.toggle_term)
 vim.keymap.set("n", "<leader>q", Sf.run_query)
+-- vim.keymap.set("x", "<C-q>", Sf.run_highlighted_soql)
