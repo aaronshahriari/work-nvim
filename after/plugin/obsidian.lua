@@ -29,6 +29,18 @@ require("obsidian").setup({
             vim.cmd(":silent ObsidianOpen")
         end,
     },
+    daily_notes = {
+    -- Optional, if you keep daily notes in a separate directory.
+    folder = "BrundageGroup/Dailies",
+    -- Optional, if you want to change the date format for the ID of daily notes.
+    date_format = "%Y-%m-%d",
+    -- Optional, if you want to change the date format of the default alias of daily notes.
+    alias_format = "Title",
+    -- Optional, default tags to add to each new daily note created.
+    default_tags = { "daily-notes" },
+    -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+    template = nil
+  },
 })
 vim.keymap.set("n", "gf", function()
   if require("obsidian").util.cursor_on_markdown_link() then
