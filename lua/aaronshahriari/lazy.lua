@@ -15,7 +15,7 @@ require('lazy').setup({
     {
         "tjdevries/colorbuddy.nvim",
     },
-    "asiryk/auto-hlsearch.nvim",
+    -- "asiryk/auto-hlsearch.nvim",
     {
         "xixiaofinland/sf.nvim",
         dependencies = {

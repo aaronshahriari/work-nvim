@@ -23,7 +23,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -39,7 +39,10 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = '  ', nbsp = ' ', trail = ' ', eol = '↲' })
 
 -- used for obsidian
-vim.opt.conceallevel = 1
+-- vim.opt.conceallevel = 1
+
+-- turned off for json
+vim.opt.conceallevel = 0
 
 vim.opt.cursorline = false
 
