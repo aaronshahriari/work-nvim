@@ -17,6 +17,8 @@ lspconfig.apex_ls.setup({
 
 lspconfig.pylsp.setup{}
 
+lspconfig.lua_ls.setup{}
+
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --     buffer = buffer,
 --     callback = function()

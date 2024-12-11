@@ -1,3 +1,3 @@
-require("huez").setup({
-    fallback = "moonfly"
-})
+-- require("huez").setup({
+--     fallback = "moonfly"
+-- })

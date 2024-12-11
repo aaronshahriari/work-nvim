@@ -57,13 +57,13 @@ require('lazy').setup({
             "saadparwaiz1/cmp_luasnip",
         },
     },
-    {
-        "vague2k/huez.nvim",
-        -- if you want registry related features, uncomment this
-        -- import = "huez-manager.import"
-        branch = "stable",
-        event = "UIEnter",
-    },
+    -- {
+    --     "vague2k/huez.nvim",
+    --     -- if you want registry related features, uncomment this
+    --     -- import = "huez-manager.import"
+    --     branch = "stable",
+    --     event = "UIEnter",
+    -- },
     {
         "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },

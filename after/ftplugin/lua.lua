@@ -1,5 +1,6 @@
 local setlocal = vim.opt_local
 
-setlocal.conceallevel = 0
+setlocal.expandtab = true
+setlocal.shiftwidth = 2
 setlocal.number = true
 setlocal.relativenumber = true
