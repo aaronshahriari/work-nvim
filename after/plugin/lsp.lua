@@ -17,7 +17,13 @@ lspconfig.apex_ls.setup({
 
 lspconfig.pylsp.setup{}
 
-lspconfig.lua_ls.setup{}
+lspconfig.lua_ls.setup{
+  settings = {
+    Lua = {
+      diagnostics = { globals = {  'vim' } }
+    }
+  }
+}
 
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --     buffer = buffer,

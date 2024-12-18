@@ -43,18 +43,20 @@ vim.opt.listchars:append({ tab = '  ', nbsp = ' ', trail = ' ', eol = '↲' })
 
 -- turned off for json
 vim.opt.conceallevel = 0
-
 vim.opt.cursorline = false
 
--- change in builtin.lua found here -> ~\Local\nvim-data\site\pack\packer\start\midnight\lua\midnight\highlight
--- vim.cmd('highlight NonText guifg=#575757')
-
--- create a new autocmd in the augroup
-local augroup = vim.api.nvim_create_augroup("TermWindowConfig", { clear = true })
+-- create terminal config
 vim.api.nvim_create_autocmd("TermOpen", {
-    group = augroup,
-    pattern = "*",
-    callback = function()
-        vim.opt_local.scrolloff = 0
-    end,
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+  callback = function ()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
+
+vim.filetype.add({
+  extension = {
+    soql = "soql",
+    apex = "apex"
+  }
 })

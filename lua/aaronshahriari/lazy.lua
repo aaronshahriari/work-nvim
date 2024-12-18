@@ -15,14 +15,6 @@ require('lazy').setup({
     {
         "tjdevries/colorbuddy.nvim",
     },
-    -- "asiryk/auto-hlsearch.nvim",
-    {
-        "xixiaofinland/sf.nvim",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "ibhagwan/fzf-lua",
-        }
-    },
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v4.x",
@@ -31,19 +23,6 @@ require('lazy').setup({
         }
     },
     { "norcalli/nvim-colorizer.lua" },
-    -- { "folke/trouble.nvim" },
-    {
-        "folke/trouble.nvim",
-        opts = {},
-        cmd = "Trouble",
-        keys = {
-            {
-                "<C-x>",
-                "<cmd>Trouble diagnostics toggle<cr>",
-                desc = "Diagnostics (Trouble)",
-            },
-        }
-    },
     {
         "hrsh7th/nvim-cmp",
         lazy = false,
@@ -57,13 +36,6 @@ require('lazy').setup({
             "saadparwaiz1/cmp_luasnip",
         },
     },
-    -- {
-    --     "vague2k/huez.nvim",
-    --     -- if you want registry related features, uncomment this
-    --     -- import = "huez-manager.import"
-    --     branch = "stable",
-    --     event = "UIEnter",
-    -- },
     {
         "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },

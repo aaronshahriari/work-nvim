@@ -20,6 +20,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<Left>", "gT")
 vim.keymap.set("n", "<Right>", "gt")
 
+-- quickfix
+vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end)
+vim.keymap.set("n", "<C-x>", ":Telescope diagnostics<CR>")
 
 -- Map to change split size
 vim.keymap.set("n", "<leader>h", "<C-w>10<")
@@ -37,12 +40,12 @@ vim.keymap.set("n", "<leader>=", "<C-w>=")
 -- Map <leader>-n to open a new tab
 vim.keymap.set("n", "<leader>n", ":tabnew<CR>")
 
--- next greatest remap ever : asbjornHaland
+-- next greatest remap
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- greatest remap ever
--- vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- flip flop visual line blocks
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -53,33 +56,22 @@ vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]])
 
 -- run tmux inside of vim
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.dotfiles/bin/.local/scripts/tmux-sessionizer<CR>")
+-- vim.keymap.set("n", "<C-z>", "<cmd>silent !tmux neww ~/.dotfiles/bin/.local/scripts/split-sessionizer<CR>")
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !. ~/.dotfiles/bin/.local/scripts/wezterm-sessionizer<CR>")
 
--- Define a function for creating a small terminal
--- entering the current directory of file you are inside
-function Small_terminal()
-    vim.cmd("new")
-    vim.cmd("wincmd J")
-    vim.api.nvim_win_set_height(0, 12)
-    vim.cmd("term")
-    vim.api.nvim_feedkeys("a", "n", true)
-end
-
--- Create a mapping for the small terminal function
-vim.keymap.set("n", "<leader>st", ":lua Small_terminal()<CR>")
+vim.keymap.set("n", "<leader>st", function()
+  vim.cmd.new()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 12)
+end)
 
 -- Define a function for creating a split terminal
--- opens in the directory entered before vim
-function Split_terminal()
-    vim.cmd("new")
-    vim.cmd("wincmd L")
-    vim.cmd("wincmd =")
-    vim.cmd("term")
-    -- vim.api.nvim_feedkeys("a", "n", true)
-end
-
--- Create a mapping for the small terminal function
-vim.keymap.set("n", "<leader>t", ":lua Split_terminal()<CR>")
+vim.keymap.set("n", "<leader>t", function()
+  vim.cmd.new()
+  vim.cmd.term()
+  vim.cmd.wincmd("L")
+end)
 
 -- source lua file
 vim.keymap.set("n", "<leader><leader>", function()
