@@ -1,12 +1,31 @@
--- create base commands for SF CLI
+-- CREATE BASE COMMANDS FOR SF CLI
+
+-- create a file in .sf/config.json
+-- { "target-org": "bgMain/bgSand" }
+function File_exists(filename)
+  local file = os.rename(filename, filename)
+  return file ~= nil
+end
+
 vim.api.nvim_create_user_command('SwitchOrg', function()
-  local orgs = {"bgSand", "bgMain"}
-  vim.ui.select(orgs, { prompt = 'Select Org:', }, function(selected)
-    if selected then
-      local set_org = "sf config set target-org -g '" .. selected .. "' &"
-      os.execute(set_org)
-    end
-  end)
+  if File_exists("sfdx-project.json") then
+    print("exists")
+    local orgs = {"bgSand", "bgMain"}
+    vim.ui.select(orgs, { prompt = 'Select Org:', }, function(selected)
+      if selected then
+        local local_org = '{ "target-org": "' .. selected .. '" }'
+        local file = io.open(".sf/config.json", "w")  -- Open the file in write mode
+        if file then
+          file:write(local_org)
+          file:close()
+        else
+          print("Error opening file!")
+        end
+      end
+    end)
+  else
+    print("Not In SF Directory")
+  end
 end, {})
 
 local job_id = 0
