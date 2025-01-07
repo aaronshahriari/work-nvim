@@ -48,15 +48,54 @@ vim.opt.cursorline = false
 -- create terminal config
 vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-  callback = function ()
+  callback = function()
     vim.opt.number = false
     vim.opt.relativenumber = false
+    vim.opt_local.scrolloff = 0
   end,
 })
 
 vim.filetype.add({
   extension = {
     soql = "soql",
-    apex = "apex"
+    apex = "apex",
+    cls = "apex"
   }
 })
+
+-- create terminal config
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
+
+-- set tabnames
+vim.o.showtabline = 1 -- always show the tabline
+vim.o.tabline = '%!v:lua.MyTabline()'
+
+-- custom tabline function
+function MyTabline()
+  local s = ''
+  for i = 1, vim.fn.tabpagenr('$') do
+    local winnr = vim.fn.tabpagewinnr(i)           -- get the window number for the tab
+    local bufnr = vim.fn.tabpagebuflist(i)[winnr]  -- get the buffer for the window
+    local bufname = vim.fn.bufname(bufnr)          -- get the buffer name
+    local file = vim.fn.fnamemodify(bufname, ':t') -- extract only the file name
+
+    -- -- handle [No Name] as oil tree
+    if file == '' then
+      file = 'Oil'
+    end
+
+    -- highlight the current tab
+    if i == vim.fn.tabpagenr() then
+      s = s .. '%#TabLineSel# ' .. (file ~= '' and file or '[No Name]') .. ' %#TabLine#'
+    else
+      s = s .. '%#TabLine# ' .. (file ~= '' and file or '[No Name]') .. ' '
+    end
+  end
+  return s
+end
