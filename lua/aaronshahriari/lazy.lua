@@ -20,7 +20,13 @@ require('lazy').setup({
       "ibhagwan/fzf-lua",
     },
     config = function()
-      require('sf').setup()
+      require('sf').setup({
+        enable_hotkeys = false,
+        default_dir = '/force-app/main/default/',
+        hotkeys_in_filetypes = {
+          "apex", "sosl", "soql", "cls"
+        },
+      })
       local Sf = require('sf')
       -- remaps
       vim.keymap.set("n", "<leader>aa", Sf.run_anonymous)
@@ -100,8 +106,6 @@ require('lazy').setup({
     "echasnovski/mini.ai",
     version = "*"
   },
-
-  "folke/todo-comments.nvim",
 
   "nvim-lua/plenary.nvim",
 

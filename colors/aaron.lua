@@ -7,7 +7,6 @@ local c = colorbuddy.colors
 local g = colorbuddy.groups
 local s = colorbuddy.styles
 
-Color.new('white', '#d9d9d9')
 Color.new('light_white', '#424242')
 Color.new('red', '#cc6666')
 Color.new('pink', '#fef601')
@@ -31,7 +30,7 @@ Group.new("@text.title.2.markdown", c.orange)
 Group.new("@text.title.3.markdown", c.purple)
 
 -- COMPLETION
-Group.new("PmenuSel", c.none, c.dark_blue)
+Group.new("PmenuSel", c.black, c.white)
 
 -- DIAGNOSTICS
 Group.new("DiagnosticError", c.red)
@@ -46,6 +45,8 @@ Group.new("CursorLine", c.white, c.background)
 -- FLOATS
 Group.new("NormalFloat", c.superwhite)
 Group.new("NormalNC", c.superwhite:dark(), c.background)
+
+-- syntax colors
 
 -- nvim groups set
 Group.new("Normal", c.superwhite, c.background)

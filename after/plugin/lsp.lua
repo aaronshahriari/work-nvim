@@ -9,10 +9,11 @@ local lspconfig = require('lspconfig')
 
 -- setup for apex_ls
 lspconfig.apex_ls.setup({
-  apex_jar_path = '/mnt/c/Users/AaronShahriari/lsp/apex-jorje-lsp.jar',
+  -- apex_jar_path = '/mnt/c/Users/AaronShahriari/lsp/apex-jorje-lsp.jar',
+  apex_jar_path = '/home/ashahriari/lsp/apex-jorje-lsp.jar',
   apex_enable_semantic_errors = false,
   apex_enable_completion_statistics = false,
-  filetypes = { "apex", "apexcode" },
+  filetypes = { "apex", "apexcode", "cls" },
 })
 
 lspconfig.pylsp.setup {}
@@ -25,9 +26,9 @@ lspconfig.lua_ls.setup {
   }
 }
 
--- vim.api.nvim_create_autocmd("BufWritePre", {
---     buffer = buffer,
---     callback = function()
---         vim.lsp.buf.format { async = false }
---     end
--- })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  buffer = buffer,
+  callback = function()
+    vim.lsp.buf.format { async = false }
+  end
+})

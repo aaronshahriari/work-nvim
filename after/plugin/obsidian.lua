@@ -1,35 +1,36 @@
 require("obsidian").setup({
-    workspaces = {
-        {
-            name = "Personal",
-            path = "~/../../mnt/c/Users/AaronShahriari/Aaron_Vault",
-        },
-        {
-            name = "Brundage Group",
-            path = "~/../../mnt/c/Users/AaronShahriari/BrundageGroup",
-        },
+  workspaces = {
+    {
+      name = "Personal",
+      path = "~/../../mnt/c/Users/AaronShahriari/Aaron_Vault",
     },
-    disable_frontmatter = true,
-    ui = {
-        enable = true,  -- set to false to disable all additional syntax features
-        update_debounce = 200,  -- update delay after a text change (in milliseconds)
-        -- Define how various check-boxes are displayed
-        checkboxes = {
-            [" "] = { char = "", hl_group = "ObsidianTodo" },
-            ["x"] = { char = "", hl_group = "ObsidianDone" },
-            [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-            ["~"] = { char = "󰜺", hl_group = "ObsidianTilde" },
-        },
+    {
+      name = "Brundage Group",
+      path = "~/../../mnt/c/Users/AaronShahriari/BrundageGroup",
     },
-    open_app_foreground = false,
-    open_notes_in = "hsplit",
-    callbacks = {
-        -- Runs anytime you enter the buffer for a note.
-        enter_note = function(client, note)
-            vim.cmd(":silent ObsidianOpen")
-        end,
+  },
+  disable_frontmatter = true,
+  ui = {
+    enable = true,         -- set to false to disable all additional syntax features
+    update_debounce = 200, -- update delay after a text change (in milliseconds)
+    -- Define how various check-boxes are displayed
+    checkboxes = {
+      [" "] = { char = "", hl_group = "ObsidianTodo" },
+      ["x"] = { char = "", hl_group = "ObsidianDone" },
+      [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+      ["<"] = { char = "", hl_group = "ObsidianRightArrow" },
+      ["~"] = { char = "󰜺", hl_group = "ObsidianTilde" },
     },
-    daily_notes = {
+  },
+  open_app_foreground = false,
+  open_notes_in = "hsplit",
+  callbacks = {
+    -- Runs anytime you enter the buffer for a note.
+    enter_note = function(client, note)
+      vim.cmd(":silent ObsidianOpen")
+    end,
+  },
+  daily_notes = {
     -- Optional, if you keep daily notes in a separate directory.
     folder = "BrundageGroup/Dailies",
     -- Optional, if you want to change the date format for the ID of daily notes.
