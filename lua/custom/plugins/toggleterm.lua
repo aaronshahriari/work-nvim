@@ -1,0 +1,21 @@
+return {
+  -- "akinsho/toggleterm.nvim",
+  -- version = "*",
+  -- config = function()
+  --   local toggleterm = require("toggleterm")
+  --   toggleterm.setup({
+  --     open_mapping = [[<c-\>]],
+  --     start_in_insert = false,
+  --     persist_size = true,
+  --     persist_mode = true,
+  --     auto_scroll = false,
+  --   })
+  --   vim.keymap.set("n", "<C-p>", ":ToggleTerm size=85 direction=vertical name=vertical<CR>")
+  --   vim.keymap.set("n", "<C-g>", ":ToggleTerm size=15 direction=horizontal name=horizontal<CR>")
+  --
+  --   local trim_spaces = true
+  --   vim.keymap.set("v", "<space>s", function()
+  --     toggleterm.send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
+  --   end)
+  -- end
+}

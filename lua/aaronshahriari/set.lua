@@ -1,7 +1,7 @@
 -- not allow the mouse
 -- vim.o.mouse = ""
 
-vim.opt.guicursor = "a:blinkon100"
+vim.opt.guicursor = "a:blinkon0"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -28,7 +28,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
--- vim.opt.scroll = 25
+vim.opt.scroll = 25
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
@@ -39,36 +39,17 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = '  ', nbsp = ' ', trail = ' ', eol = '↲' })
 
 -- used for obsidian
--- vim.opt.conceallevel = 1
+vim.opt.conceallevel = 1
 
--- turned off for json
-vim.opt.conceallevel = 0
 vim.opt.cursorline = false
 
 -- create terminal config
 vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
   callback = function()
-    vim.opt.number = false
-    vim.opt.relativenumber = false
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
     vim.opt_local.scrolloff = 0
-  end,
-})
-
-vim.filetype.add({
-  extension = {
-    soql = "soql",
-    apex = "apex",
-    cls = "apex"
-  }
-})
-
--- create terminal config
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-  callback = function()
-    vim.opt.number = false
-    vim.opt.relativenumber = false
   end,
 })
 

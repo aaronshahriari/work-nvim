@@ -3,12 +3,14 @@ vim.g.mapleader = " "
 
 vim.g.netrw_bufsettings = "noma nomod nu nowrap ro nobl"
 vim.cmd("autocmd FileType netrw set nu")
---
--- Map these to move splits
-vim.keymap.set("n", "<C-S-h>", "<C-w>H")
-vim.keymap.set("n", "<C-S-j>", "<C-w>J")
-vim.keymap.set("n", "<C-S-k>", "<C-w>K")
-vim.keymap.set("n", "<C-S-l>", "<C-w>L")
+
+-- navigate the quickfix/location list in normal mode
+vim.keymap.set('n', '<C-[>', ':cp<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-]>', ':cn<CR>', { noremap = true, silent = true })
+
+-- scrolling horizontally with the mouse (csv files ofc)
+vim.keymap.set('n', '<S-ScrollWheelUp>', '10zh', { silent = true })
+vim.keymap.set('n', '<S-ScrollWheelDown>', '10zl', { silent = true })
 
 -- Map these to move through splits
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
@@ -24,15 +26,20 @@ vim.keymap.set("n", "<Right>", "gt")
 vim.keymap.set("n", "<S-Left>", function() vim.cmd("tabmove -1") end)
 vim.keymap.set("n", "<S-Right>", function() vim.cmd("tabmove +1") end)
 
--- quickfix
+-- used to see diagnostics
 vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end)
+
+-- used to single file diagnostics in qflist
 vim.keymap.set("n", "<C-x>", ":Telescope diagnostics<CR>")
+
+-- used to single file diagnostics in qflist
+vim.keymap.set("n", "<C-c>", ":CsvViewToggle<CR>")
 
 -- Map to change split size
 vim.keymap.set("n", "<C-Left>", "<C-w>10<")
 vim.keymap.set("n", "<C-Right>", "<C-w>10>")
-vim.keymap.set("n", "<C-Up>", "<C-w>10+")
-vim.keymap.set("n", "<C-Down>", "<C-w>10-")
+vim.keymap.set("n", "<C-Down>", "<C-w>10+")
+vim.keymap.set("n", "<C-Up>", "<C-w>10-")
 
 -- create splits
 vim.keymap.set("n", "<leader>1", "<C-w>v<C-w>l")
@@ -42,9 +49,9 @@ vim.keymap.set("n", "<leader>2", "<C-w>s<C-w>j")
 vim.keymap.set("n", "<leader>=", "<C-w>=")
 
 -- Map <leader>-n to open a new tab
-vim.keymap.set("n", "<leader>n", "<C-w>T")
+vim.keymap.set("n", "<leader>n", ":tabnew<CR>")
 
--- next greatest remap
+-- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
@@ -60,22 +67,25 @@ vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]])
 
 -- run tmux inside of vim
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.dotfiles/bin/.local/scripts/tmux-sessionizer<CR>")
--- vim.keymap.set("n", "<C-z>", "<cmd>silent !tmux neww ~/.dotfiles/bin/.local/scripts/split-sessionizer<CR>")
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !. ~/.dotfiles/bin/.local/scripts/wezterm-sessionizer<CR>")
 
-vim.keymap.set("n", "<leader>st", function()
-  vim.cmd.new()
-  vim.cmd.term()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 12)
-end)
+-- define a function for creating a small terminal
+-- vim.keymap.set("n", "<leader>st", function()
+--   vim.cmd.new()
+--   vim.cmd.term()
+--   vim.cmd.wincmd("J")
+--   vim.api.nvim_win_set_height(0, 12)
+-- end)
 
--- Define a function for creating a split terminal
-vim.keymap.set("n", "<leader>t", function()
-  vim.cmd.new()
-  vim.cmd.term()
-  vim.cmd.wincmd("L")
-end)
+-- define a function for creating a split terminal
+-- vim.keymap.set("n", "<leader>t", function()
+--   vim.cmd.new()
+--   vim.cmd.term()
+--   vim.cmd.wincmd("L")
+--   vim.api.nvim_win_set_width(0, 80)
+-- end)
+
+-- setting up terminal toggle
+require("aaronshahriari.terminal")
 
 -- source lua file
 vim.keymap.set("n", "<leader><leader>", function()
