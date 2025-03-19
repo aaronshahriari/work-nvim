@@ -8,11 +8,18 @@ return {
     -- Default handlers for LSP
     local default_handlers = {
       ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
-      -- ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
     }
+
+    require 'lspconfig'.pylsp.setup({})
 
     -- setup for apex_ls
     lspconfig.apex_ls.setup({
+      init_options = {
+        completion = {
+          placeholder = false,
+        },
+      },
       -- apex_jar_path = '/mnt/c/Users/AaronShahriari/lsp/apex-jorje-lsp.jar',
       apex_jar_path = '/home/ashahriari/lsp/apex-jorje-lsp.jar',
       apex_enable_semantic_errors = false,

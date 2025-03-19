@@ -1,6 +1,6 @@
 return {
-  "tjdevries/colorbuddy.nvim",
+  "bettervim/yugen.nvim",
   config = function()
-    vim.cmd.colorscheme "aaron"
-  end,
+    -- vim.cmd.colorscheme("yugen")
+  end
 }

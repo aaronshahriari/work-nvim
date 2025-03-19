@@ -4,7 +4,7 @@ return {
   config = function()
     local tree = require("nvim-treesitter.configs")
     tree.setup {
-      ensure_installed = { "markdown_inline", "java", "python", "javascript", "c", "lua", "vim", "vimdoc", "query" },
+      ensure_installed = { "apex", "markdown", "markdown_inline", "java", "python", "javascript", "c", "lua", "vim", "vimdoc", "query" },
       sync_install = false,
       auto_install = true,
       highlight = {

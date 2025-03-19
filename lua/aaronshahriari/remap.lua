@@ -33,7 +33,7 @@ vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end)
 vim.keymap.set("n", "<C-x>", ":Telescope diagnostics<CR>")
 
 -- used to single file diagnostics in qflist
-vim.keymap.set("n", "<C-c>", ":CsvViewToggle<CR>")
+-- vim.keymap.set("n", "<C-c>", ":CsvViewToggle<CR>")
 
 -- Map to change split size
 vim.keymap.set("n", "<C-Left>", "<C-w>10<")
@@ -69,23 +69,23 @@ vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]])
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.dotfiles/bin/.local/scripts/tmux-sessionizer<CR>")
 
 -- define a function for creating a small terminal
--- vim.keymap.set("n", "<leader>st", function()
---   vim.cmd.new()
---   vim.cmd.term()
---   vim.cmd.wincmd("J")
---   vim.api.nvim_win_set_height(0, 12)
--- end)
+vim.keymap.set("n", "<leader>st", function()
+  vim.cmd.new()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 12)
+end)
 
 -- define a function for creating a split terminal
--- vim.keymap.set("n", "<leader>t", function()
---   vim.cmd.new()
---   vim.cmd.term()
---   vim.cmd.wincmd("L")
---   vim.api.nvim_win_set_width(0, 80)
--- end)
+vim.keymap.set("n", "<leader>t", function()
+  vim.cmd.new()
+  vim.cmd.term()
+  vim.cmd.wincmd("L")
+  vim.api.nvim_win_set_width(0, 70)
+end)
 
 -- setting up terminal toggle
-require("aaronshahriari.terminal")
+-- require("aaronshahriari.terminal")
 
 -- source lua file
 vim.keymap.set("n", "<leader><leader>", function()
